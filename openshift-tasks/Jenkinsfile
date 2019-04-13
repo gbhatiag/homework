@@ -25,6 +25,8 @@ podTemplate(
     // Checkout Source Code.
     stage('Checkout Source') {
       checkout scm
+	  echo pwd
+	  echo ls -l
 	  chmod +x ./bin/*.sh
     }
 
