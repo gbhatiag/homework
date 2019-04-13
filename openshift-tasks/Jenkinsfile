@@ -1,5 +1,5 @@
 #!groovy
-def GUID = "c432"
+def GUID = "784c"
 podTemplate(
   label: "skopeo-pod",
   cloud: "openshift",
@@ -19,8 +19,8 @@ podTemplate(
     // Define Maven Command to point to the correct
     // settings for our Nexus installation
     def mvnCmd = "mvn -s ../nexus_settings.xml"
-    def devProject  = "c432-tasks-dev"
-    def prodProject = "c432-tasks-prod"
+    def devProject  = "784c-tasks-dev"
+    def prodProject = "784c-tasks-prod"
 
     // Checkout Source Code.
     stage('Checkout Source') {
@@ -38,7 +38,7 @@ podTemplate(
       // TBD Set the tag for the development image: version + build number
       def devTag  = "${version}-" + currentBuild.number
       // Set the tag for the production image: version
-      def prodTag = "${version}-" + currentBuild.number
+      def prodTag = "${version}"
 
       // Using Maven build the war file
       // Do not run tests in this step
@@ -168,7 +168,7 @@ podTemplate(
               dc.spec.template.spec.containers[0].image="docker-registry.default.svc:5000/${devProject}/tasks:${prodTag}"
               openshift.apply(dc)
               
-              openshift.set("env", "dc/${destApp}", "VERSION='${prodTag} (${destApp})'", "--overwrite")
+              openshift.set("env", "dc/${destApp}", "VERSION='${prodTag}  (${destApp})'", "--overwrite")
 
 
               // Update Config Map in change config files changed in the source
