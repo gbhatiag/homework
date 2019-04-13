@@ -7,7 +7,7 @@ if [ "$#" -ne 3 ]; then
     echo "  $0 GUID USER FROM_JENKINS"
     exit 1
 fi
-  
+
 GUID=$1
 USER=$2
 FROM_JENKINS=$3
