@@ -5,7 +5,7 @@ if [ "$#" -ne 1 ]; then
     echo "  $0 GUID"
     exit 1
 fi
-
+ 
 GUID=$1
 echo "Removing all Homework Projects for GUID=$GUID"
 oc delete project $GUID-jenkins
