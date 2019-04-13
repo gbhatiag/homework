@@ -6,7 +6,7 @@ if [ "$#" -ne 3 ]; then
     echo "  Example: $0 wkha https://github.com/redhat-gpte-devopsautomation/advdev_homework_template.git na311.openshift.opentlc.com"
     exit 1
 fi
- 
+
 GUID=$1
 REPO=$2
 CLUSTER=$3
